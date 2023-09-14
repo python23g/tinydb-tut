@@ -1,22 +1,23 @@
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 from tinydb.database import Document
-import requests
+
 
 db = TinyDB('db.json', indent=4)
 
 users = db.table('users')
+q = Query()
 
 
 def user_by_id(id: int) -> Document:
-    pass
+    user = users.get(doc_id=id)
+    return user
 
-
-def users_by_id(id: int) -> list[Document]:
-    pass
+def users_by_id(ids: list[int]) -> list[Document]:
+    return users.get(doc_ids=ids)
 
 
 def users_by_gender(gender: str) -> list[Document]:
-    pass
+    return users.search(q.gender == gender)
 
 
 def users_by_country(country: str) -> list[Document]:
