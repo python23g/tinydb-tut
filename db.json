@@ -1,16 +1,5 @@
 {
     "users": {
-        "1": {
-            "first_name": "Manuel",
-            "last_name": "Carrasco",
-            "gender": "male",
-            "country": "Mexico",
-            "city": "Bajos del Ejido",
-            "email": "manuel.carrasco@example.com",
-            "age": 33,
-            "phone": "(660) 211 7072",
-            "nat": "MX"
-        },
         "2": {
             "first_name": "Johnni",
             "last_name": "Walters",
@@ -18,9 +7,10 @@
             "country": "Ireland",
             "city": "Dungarvan",
             "email": "johnni.walters@example.com",
-            "age": 77,
+            "age": 18,
             "phone": "051-210-0360",
-            "nat": "IE"
+            "nat": "IE",
+            "dfadsfas": "fdasfds"
         },
         "3": {
             "first_name": "Silje",
@@ -15759,9 +15749,10 @@
             "country": "Ireland",
             "city": "Oranmore",
             "email": "johnni.mcguinness@example.com",
-            "age": 49,
+            "age": 18,
             "phone": "041-834-2663",
-            "nat": "IE"
+            "nat": "IE",
+            "dfadsfas": "fdasfds"
         },
         "1434": {
             "first_name": "Tim",

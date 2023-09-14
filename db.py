@@ -64,7 +64,9 @@ def users_by_country_and_city(country: str, city: str) -> list[Document]:
     pass
 
 
-def users_by_country_and_city(country: str, city: str) -> list[Document]:
-    pass
+data = {
+    "age": 18,
+    "dfadsfas": "fdasfds"
+}
 
-
+users.update(data, q.first_name == 'Johnni')
