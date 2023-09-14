@@ -2,13 +2,18 @@ from db import (
     user_by_id,
     users_by_id,
     users_by_gender,
+    users_by_country,
+    users_by_city,
+    users_by_nat,
+    users_gt,
+    users_lt,
+    users_in_range,
+    users_by_country_and_city,
 )
 
 
-users_male = users_by_gender('male')
-users_female = users_by_gender('female')
+# users = users_gt(18)  # dan katta
+# users = users_lt(30)  # dan kichkina
+users = users_in_range(25, 30)
 
-print(len(users_male))
-print(len(users_female))
-
-print(len(users_male) + len(users_female))
+print(len(users))
