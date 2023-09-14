@@ -20,6 +20,10 @@ def users_by_gender(gender: str) -> list[Document]:
     return users.search(q.gender == gender)
 
 
+def number_of(gender: str) -> list[Document]:
+    return users.count(q.gender == gender)
+
+
 def users_by_country(country: str) -> list[Document]:
     return users.search(q.country == country)
 
@@ -39,6 +43,11 @@ def users_by_nat(nat: str) -> list[Document]:
 def users_gt(age: int) -> list[Document]:
     """greater then"""
     return users.search(q.age > age)
+
+
+def users_count_gt(age: int) -> list[Document]:
+    """greater then"""
+    return users.count(q.age > age)
 
 
 def users_gte(age: int) -> list[Document]:
@@ -62,11 +71,3 @@ def users_in_range(min_age: int, max_age: int) -> list[Document]:
 
 def users_by_country_and_city(country: str, city: str) -> list[Document]:
     pass
-
-
-data = {
-    "age": 18,
-    "dfadsfas": "fdasfds"
-}
-
-users.update(data, q.first_name == 'Johnni')
