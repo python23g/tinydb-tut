@@ -4,13 +4,12 @@ import requests
 
 db = TinyDB('db.json', indent=4)
 
-males = db.table('males')
-females = db.table('females')
+users = db.table('users')
 
 
-def get_users(n: int, gender: str) -> list[dict]:
+def get_users(n: int) -> list[dict]:
     url = "https://randomuser.me/api/"
-    payload = {"results": n, "gender": gender}
+    payload = {"results": n}
 
     response = requests.get(url=url, params=payload)
 
@@ -18,23 +17,20 @@ def get_users(n: int, gender: str) -> list[dict]:
         users = []
         for user in response.json()['results']:
             users.append({
-                "full_name": f'{user["name"]["first"]} {user["name"]["last"]}',
-                "age": user['dob']['age'],
-                'address': f'{user["location"]["country"]}, {user["location"]["city"]}, {user["location"]["street"]["number"]}',
-                'phone': user['phone'],
+                'first_name': user['name']['first'],
+                'last_name': user['name']['last'],
+                'gender': user['gender'],
+                'country': user['location']['country'],
+                'city': user['location']['city'],
                 'email': user['email'],
-                'image': user['picture']['large']
+                'age': user['dob']['age'],
+                'phone': user['phone'],
+                'nat': user['nat'],
             })
 
         return users
 
 
-def add_users(users: list[dict], table: TinyDB):
-    table.insert_multiple(users)
+users_data = get_users(5000)
+users.insert_multiple(users_data)
 
-
-def clear_db(table: TinyDB):
-    table.truncate()
-
-clear_db(males)
-clear_db(females)
