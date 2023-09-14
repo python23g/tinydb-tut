@@ -33,8 +33,8 @@ def add_users(users: list[dict], table: TinyDB):
     table.insert_multiple(users)
 
 
-male_users = get_users(30, 'male')
-female_users = get_users(30, 'female')
+def clear_db(table: TinyDB):
+    table.truncate()
 
-add_users(male_users, males)
-add_users(female_users, females)
+clear_db(males)
+clear_db(females)
